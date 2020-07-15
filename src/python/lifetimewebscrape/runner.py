@@ -8,7 +8,6 @@ import argparse
 
 import pandas as pd
 import requests
-import argparse
 
 logging.basicConfig(level=logging.WARN)
 _logger = logging.getLogger(__name__)
