@@ -29,3 +29,10 @@ Column 2: A URL to a Walmart web site product page. This should work when you pa
 
 ## Run script
 - Execute python [path-to-script]/runner.py [options]
+
+## Backlog
+- Update to scrapy framework
+- Parse other page attributes (e.g. price)
+- Store results from runs
+- Track metrics of results over time
+- Create simple dashboard for results
