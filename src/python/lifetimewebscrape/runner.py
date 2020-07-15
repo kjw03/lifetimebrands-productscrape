@@ -59,8 +59,9 @@ def main(arguments) -> None:
     Creates a CSV file with the original product file
     columns as well as a new column that indicates whether
     the product was out of stock or not. the file is sorted
-    according to the OOS flag (0=in stock, 1=out of stock)
-    and then the product key.
+    according to the OOS flag (0=in stock, 1=out of stock,
+    2=in stock status could not be determined) and then the
+    product key.
     """
 
     parser = argparse.ArgumentParser(
@@ -86,7 +87,8 @@ def main(arguments) -> None:
     product_pdf = read_product_table_from_file(args.infile)
 
     # Append a new column to the Pandas DataFrame with the OOS flag
-    # The out of stock (OOS) flag is 0 if it's in stock, else it's 1.
+    # The out of stock (OOS) flag is 0 if it's determined to be in stock, 1 if it's
+    # determined to be out of stock, and 2 if its instock status couldn't be determined.
     product_pdf['oos_flag'] = product_pdf.apply(
         lambda x: determine_product_in_stock_status(x.url), axis=1) 
 
