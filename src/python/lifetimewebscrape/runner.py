@@ -57,11 +57,17 @@ def main(arguments) -> None:
     
     Creates a CSV file with the original product file
     columns as well as a new column that indicates whether
-    the product was out of stock or not. the file is sorted
+    the product was out of stock or not. The output file is sorted
     according to the OOS flag (0=in stock, 1=out of stock,
     2=in stock status could not be determined) and then the
     product key.
     """
+
+    # Prepare default arguments
+    module_dir = os.path.dirname(os.path.abspath(__file__))
+    default_infile_path = os.path.join(module_dir,
+        './../../resources/productlist.csv')
+    default_outfile_path = './productListWithWalmartOOSFlags.csv'
 
     parser = argparse.ArgumentParser(
         description=__doc__,
@@ -71,13 +77,13 @@ def main(arguments) -> None:
                   product that is out of stock has the text 'Out of stock' show
                   up on the Walmart web site (not case sensitive)""")
     parser.add_argument('-i', '--infile',
-                        default='./../../resources/productlist.csv',
+                        default=default_infile_path,
                         type=argparse.FileType('r'),
                         help="Input file (i.e., the product file)")
     parser.add_argument('-o', '--outfile',
-                        default='./productListWithWalmartOOSFlags.csv',
+                        default=default_outfile_path,
                         type=argparse.FileType('w'),
-                        help="Output file")
+                        help="Output file containing OOS indicator")
 
     # Parse command line arguments to the script
     args = parser.parse_args(arguments)
