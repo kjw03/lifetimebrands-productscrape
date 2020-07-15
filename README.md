@@ -15,7 +15,7 @@ stock status could not be determined) and then the product key.
 - Navigate to root folder of the repository
 - Execute `pytest`
 
-## Update product file:
+## Update product file
 - Update the default input file in location /src/python/resources/productlist.csv
   or create a new file and point to it using the runner.py input argument -i
 
@@ -24,7 +24,7 @@ Column 1: A product key. This value is only used to identify a product.
 Column 2: A URL to a Walmart web site product page. This should work when you paste
           it into your browser.
 
-## Learn how to run script:
+## Learn how to run script
 - Execute python [path-to-script]/runner.py -h
 
 ## Run script
